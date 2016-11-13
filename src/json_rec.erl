@@ -156,7 +156,7 @@ keys_rec([{Key, Value}|Rest], Module, Rec) ->
 
 pl(P, Module) ->
     pl(P,Module,[]).
-pl([],_M,[H]) -> H;
+pl([],_M,[H]) -> [H];
 pl([],_M,Acc) -> lists:reverse(Acc);
 pl([{Key, {struct,Pl}}|Rest], Module, Acc) ->
     Value = case module_new(Module,Key,undefined) of
